@@ -3,7 +3,10 @@
 Wireshark was used on both Windows and Linux and we used traceroute/tracert for www.google.com.
 
 On Linux, we filtered using `(udp and not quic and not dns) or icmp`.
+Used `traceroute www.google.com` trace the route of the packets.
+
 On Windows, we filtered using `icmp`.
+Used `tracert www.google.com` trace the route of the packets.
 
 ## **1. What protocol does Windows tracert use by default, and what protocol does Linux traceroute use by default?**
 
@@ -106,4 +109,5 @@ Intermediate hops reply with an **ICMP "Time-to-live exceeded"** message. The fi
 *   Windows `tracert`: Nothing would be affected. Since `tracert` uses ICMP Echo Requests for its probes, and the firewall allows ICMP, the probes would pass through. The incoming ICMP `Time-to-live exceeded` and `Echo reply` messages would also be allowed, so the entire route to the destination would be mapped successfully.
 
 NOTE: Linux `traceroute` can be forced to use ICMP probes with the `-I` flag (`traceroute -I www.google.com`).
+
 
